@@ -27,10 +27,10 @@ directory '/opt/tomcat85/' do
   action :create
 end
 
-remote_file '/opt/tomcat85/' do
+remote_file '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
   source 'http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz'
   owner 'tomcat85'
   group 'tomcat85'
   mode '0444'
-  action :create_if_missing
+  action :create
 end
