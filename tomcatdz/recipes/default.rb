@@ -4,24 +4,8 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-#remote_file '/var/www/customers/public_html/index.html' do
-#  source 'http://somesite.com/index.html'
-#  owner 'web_admin'
-#  group 'web_admin'
-#  mode '0755'
-#  action :create
-#end
 
 
-#user_home = "/home/#{node['cookbook_name']['user']}"
-
-#user node['cookbook_name']['user'] do
-#  gid node['cookbook_name']['group']
-##  shell '/bin/bash'
-#  home user_home
-#  system true
-#  action :create
-#end
 
 group 'tomcat85' do
   action :create
@@ -34,4 +18,19 @@ user 'tomcat85' do
   home '/opt/tomcat85'
   shell '/sbin/nologin'
   group 'tomcat85'
+end
+
+directory '/opt/tomcat85/' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+remote_file '/opt/tomcat85/' do
+  source 'http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz'
+  owner 'tomcat85'
+  group 'tomcat85'
+  mode '0444'
+  action :create_if_missing
 end
