@@ -41,4 +41,21 @@ tar_extract '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
   creates '/opt/tomcat85/apache-tomcat-8.5.23'
 end
 
+cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml' do
+  source 'server.xml'
+  mode '0600'
+end
+
+cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/bin/setenv.sh' do
+  source 'setenv.sh'
+  mode '0750'
+end
+
+cookbook_file '/etc/systemd/system/tomcat85.service' do
+  source 'tomcat85.service'
+  mode '0644'
+end
+
+
+
 
