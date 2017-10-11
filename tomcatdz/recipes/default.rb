@@ -56,6 +56,10 @@ cookbook_file '/etc/systemd/system/tomcat85.service' do
   mode '0644'
 end
 
+execute 'tomcat_register_service_reload_systemd' do
+  command 'systemctl daemon-reload'
+end
 
-
-
+service 'tomcat85' do
+  action [:enable, :start]
+end 
