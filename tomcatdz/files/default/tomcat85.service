@@ -1,0 +1,17 @@
+[Unit]
+Description=Apache Tomcat 85 Server
+After=syslog.target network.target
+ 
+[Service]
+User=tomcat85
+Group=tomcat85
+Type=forking
+Environment=CATALINA_PID=/opt/tomcat85/apache-tomcat-8.5.23/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat85/apache-tomcat-8.5.23
+Environment=CATALINA_BASE=/opt/tomcat85/apache-tomcat-8.5.23
+ExecStart=/opt/tomcat85/apache-tomcat-8.5.23/bin/startup.sh
+ExecStop=/opt/tomcat85/apache-tomcat-8.5.23/bin/shutdown.sh
+Restart=on-failure
+ 
+[Install]
+WantedBy=multi-user.target
