@@ -43,8 +43,13 @@ execute 'change ownership' do
   command 'chown -R tomcat85:tomcat85 /opt/tomcat85'
 end
 
-cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml' do
-  source 'server.xml'
+#cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml' do
+#  source 'server.xml'
+#  mode '0600'
+#end
+
+template "/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml" do
+  source 'server.xml.erb'
   mode '0600'
 end
 
