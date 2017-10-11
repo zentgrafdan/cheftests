@@ -3,8 +3,8 @@ Description=Apache Tomcat 85 Server
 After=syslog.target network.target
  
 [Service]
-#User=tomcat85
-#Group=tomcat85
+User=tomcat85
+Group=tomcat85
 Type=forking
 Environment=CATALINA_PID=/opt/tomcat85/apache-tomcat-8.5.23/tomcat.pid
 Environment=CATALINA_HOME=/opt/tomcat85/apache-tomcat-8.5.23

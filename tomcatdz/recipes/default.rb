@@ -5,8 +5,6 @@
 # Copyright:: 2017, Dan Zentgraf, All Rights Reserved.
 
 
-
-
 group 'tomcat85' do
   action :create
   append true
@@ -41,6 +39,10 @@ tar_extract '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
   creates '/opt/tomcat85/apache-tomcat-8.5.23'
 end
 
+execute 'change ownership' do
+  command 'chown -R tomcat85:tomcat85 /opt/tomcat85'
+end
+
 cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml' do
   source 'server.xml'
   mode '0600'
@@ -63,3 +65,7 @@ end
 service 'tomcat85' do
   action [:enable, :start]
 end 
+
+
+
+
