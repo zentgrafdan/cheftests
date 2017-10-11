@@ -1,10 +1,10 @@
 name 'tomcatdz'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Dan Zentgraf'
+maintainer_email 'zentgrafdan@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures tomcatdz'
 long_description 'Installs/Configures tomcatdz'
-version '0.1.5'
+version '0.1.6'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -25,3 +25,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # 0.1.3 - added remote file
 # 0.1.4 - added directory
 # 0.1.5 - fixed remote file - added in file name
+# 0.1.6 - added supermarket cookbook for tar
+
+
+depends 'tar'

@@ -2,7 +2,7 @@
 # Cookbook:: tomcatdz
 # Recipe:: default
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Dan Zentgraf, All Rights Reserved.
 
 
 
@@ -34,3 +34,11 @@ remote_file '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
   mode '0444'
   action :create
 end
+
+tar_extract '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
+  action :extract_local
+  target_dir '/opt/tomcat85'
+  creates '/opt/tomcat85/apache-tomcat-8.5.23'
+end
+
+
