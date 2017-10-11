@@ -4,7 +4,7 @@ maintainer_email 'zentgrafdan@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures tomcatdz'
 long_description 'Installs/Configures tomcatdz'
-version '0.1.7'
+version '0.1.8'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -27,6 +27,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # 0.1.5 - fixed remote file - added in file name
 # 0.1.6 - added supermarket cookbook for tar
 # 0.1.7 - added tomcat config files
+# 0.1.8 - fixed systemctl reload resource
 
 
 depends 'tar'
