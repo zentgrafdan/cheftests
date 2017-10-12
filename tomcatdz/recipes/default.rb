@@ -31,6 +31,7 @@ remote_file '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
   group 'tomcat85'
   mode '0444'
   action :create
+  not_if { ::File.exists? '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' }
 end
 
 tar_extract '/opt/tomcat85/apache-tomcat-8.5.23.tar.gz' do
@@ -42,11 +43,6 @@ end
 execute 'change ownership' do
   command 'chown -R tomcat85:tomcat85 /opt/tomcat85'
 end
-
-#cookbook_file '/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml' do
-#  source 'server.xml'
-#  mode '0600'
-#end
 
 template "/opt/tomcat85/apache-tomcat-8.5.23/conf/server.xml" do
   source 'server.xml.erb'
